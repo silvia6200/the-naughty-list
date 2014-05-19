@@ -1,11 +1,42 @@
 The Naughty List
 ================
 
-This project has had a development scaffold put in place to encourage best practices; the focus being on Test-Driven Development and Continuous Integration - badly tested code that is stale tends to break. This also uses company conventions to allow for faster implementation and familiarity with other developers' work.
+##About
+
+The Naughty List at it's simplest level is to raise awareness of companies' exploitation and to provide a platform where action can be taken.
+
+Some observations about the problem:
+
+* Companies/countries are the main cause of exploitation across the globe. Whether it's animal cruelty, child labour, deforestation or climate change; something, somewhere is exploited with the goal of making a profit from it.
+* Most people that make up these organisations just want to live normal lives, and are more than likely good people. However together they form a machine that can do damage.
+* Many charities and NGO's want to highlight these issues i.e. PETA with topshop over angora fur. But anger tends to be short lived.
+* Social media helps raise awareness of wrongful acts, but as they happen so often that people will go "RA RA RA that's terrible!" and then move on to the next media frenzy. The rage is temporary, and when it's so short, it's difficult to really build momentum.
+* As all these NGO's are trying to get your attention to their cause, there is no real combined effort to punish those responsible. It's a lot of small attacks on a giant fortress.
+
+Some observations about companies in general:
+
+* Very easy here. Companies need your support, or they die.
+* December and the run up to Christmas is a very important month for almost every company.
+
+The insight
+
+* By thinking of the larger problem at hand, and not just separate causes; that is, that multinationals and countries are responsible for many different faults it becomes a much more easier to plan a course of action.
+
+The idea
+
+* Create a means where every person can express their anger at a particular company/country, and for what reason, every day across any medium (twitter, facebook, thenaughtylist.com etc...)
+* Track the opinions of those companies throughout the year, with the worst companies being visible on the website.
+* Come December, compile the list of the most badly behaved companies to form the Naughty List.
+* Have a mass boycott of those companies on The Naughty List during the entire month of December, applying not just pressure in shear numbers, but also a long duration of action. 
+* In the same way as santa doesn't give misbehaving children presents, neither do the consumers reward little shits.
+
+On a side note, this will probably also become a #nicelist too, so that companies can right their wrongs, and because being negative all the time gets you nowhere.
 
 ##Setup
 
-To setup your development environment, please run:
+This project has had a development scaffold put in place to encourage best practices; the focus being on Test-Driven Development and Continuous Integration - badly tested code that is stale tends to break. This also uses company conventions to allow for faster implementation and familiarity with other developers' work.
+
+To set up your development environment, simply run:
 
     . scripts/setup.sh;
     
@@ -15,7 +46,7 @@ Client
 
 * Check you have the required frontend dependecies installed (node.js, ruby)
 * Install libraries required for main build tool (grunt) to work correctly
-* Install project dependencies (package.json) and client side scripts (bower.json)
+* Install project dependencies through package.json (e.g. bower) and client side scripts through bower (e.g. angular)
 
 Server
 
