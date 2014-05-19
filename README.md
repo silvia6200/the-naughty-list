@@ -1,5 +1,5 @@
-{project}
-==========
+The Naughty List
+================
 
 {project} has had a development scaffold put in place to encourage best practices; the focus being on Test-Driven Development and Continuous Integration - badly tested code that is stale tends to break. This also uses company conventions to allow for faster implementation and familiarity with other developers' work.
 
