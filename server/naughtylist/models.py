@@ -12,3 +12,9 @@ class Voice(models.Model):
     naughty = models.BooleanField()
     fuzzy = models.BooleanField(default=False)
     verified = models.BooleanField(default=False)
+
+
+class CompanyMapping(models.Model):
+
+    current_name = models.TextField()
+    correct_name = models.TextField()
