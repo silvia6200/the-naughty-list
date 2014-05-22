@@ -23,3 +23,7 @@ else
     . $SCRIPTS/server/django.sh;
     . $SCRIPTS/git-hooks/django-angular-grunt.sh;
 fi
+
+# Finally make sure all pulls and pushes go to master
+cd $PROJECT;
+git branch --set-upstream-to=origin/master master;
