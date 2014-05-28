@@ -3,4 +3,4 @@ djangorestframework
 south
 ipython
 redis
-hiredis
+#hiredis
