@@ -58,6 +58,7 @@ ROOT_URLCONF = 'project.urls'
 
 WSGI_APPLICATION = 'project.wsgi.application'
 
+NAUGHTY_LIST_SIZE = 10
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases

@@ -1,5 +1,20 @@
 from django.db import models
+from django.conf import settings
+import itertools
+from collections import Counter
 
+class NaughtyListManager(models.Manager):
+    def all(self, size=settings.NAUGHTY_LIST_SIZE):
+        # get a list of key/value pairs, e.g. [{"offender": "badcompany"}, {"offender": "badcompany2"}]
+        voices = super(NaughtyListManager, self).get_queryset().filter(naughty=True).distinct().values("offender")
+        # then turn this into a list of lists, e.g. [["badcompany"], ["badcompany2"]]
+        voices = [x.values() for x in voices]
+        # flatten the list
+        badcompanies = list(itertools.chain(*voices))
+        # give a sorted list of pairs of company / number of occurences
+        sortedlist = Counter(badcompanies).most_common(size)
+        # return just a list of companies
+        return [x[0] for x in sortedlist]
 
 class Voice(models.Model):
 
@@ -13,6 +28,8 @@ class Voice(models.Model):
     fuzzy = models.BooleanField(default=False)
     verified = models.BooleanField(default=False)
 
+    objects = models.Manager()
+    naughty_list = NaughtyListManager()
 
 class CompanyMapping(models.Model):
 
