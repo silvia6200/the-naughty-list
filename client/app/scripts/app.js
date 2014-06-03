@@ -5,7 +5,9 @@ angular
     'ngCookies',
     'ngResource',
     'ngSanitize',
-    'ngRoute'
+    'ngRoute',
+    'clientAppDep',
+    'd3'
   ])
   .config(function ($routeProvider) {
     $routeProvider
