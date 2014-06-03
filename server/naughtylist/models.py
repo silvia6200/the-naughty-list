@@ -5,9 +5,10 @@ from collections import Counter
 from datetime import datetime, date
 
 class NaughtyListManager(models.Manager):
-    def all(self, size=settings.NAUGHTY_LIST_SIZE, start_date=date(1, 1, 1), end_date=datetime.today()):
+    def all(self, size=settings.NAUGHTY_LIST_SIZE, start_date=date(datetime.today().year, 1, 1), end_date=datetime.today()):
         # get a list of key/value pairs, e.g. [{"offender": "badcompany"}, {"offender": "badcompany2"}]
         voices = super(NaughtyListManager, self).get_queryset().filter(naughty=True).distinct().values("offender")
+        # filter for date range
         voices = voices.filter(date_added__range=(start_date, end_date))
         # then turn this into a list of lists, e.g. [["badcompany"], ["badcompany2"]]
         voices = [x.values() for x in voices]

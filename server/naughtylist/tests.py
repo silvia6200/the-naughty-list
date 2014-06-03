@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.test import TestCase
 from naughtylist.models import Voice
-from datetime import datetime, timedelta
+from datetime import datetime, date, timedelta
 
 # Create your tests here.
 
@@ -12,6 +12,8 @@ class ListMethodTests(TestCase):
         Voice.objects.create(user="3", offender="baddy", reason="", message="", naughty=True)
         Voice.objects.create(user="4", offender="anotherbadco", reason="", message="", naughty=True)
         Voice.objects.create(user="5", offender="goodcompany", reason="", message="", naughty=False)
+        Voice.objects.create(user="6", offender="oldcompany", reason="", message="", naughty=True)
+        Voice.objects.filter(user="6").update(date_added=date(2013, 1, 1))
 
     def test_positive_global_list_size_variable_exists(self):
         """
@@ -50,3 +52,10 @@ class ListMethodTests(TestCase):
         two_days_from_now = datetime.today() + timedelta(days=2)
         self.assertEquals(Voice.naughty_list.all(start_date=one_day_from_now, end_date=two_days_from_now), [])
         self.assertGreater(len(Voice.naughty_list.all()), 0)
+
+    def test_default_date_range_is_current_year(self):
+        """
+        If no date range is given, default to so far this current year e.g. may 1st
+        2014 would take from 01/01/14 - 01/05/14, june 1st 2015 would take from 01/01/15 - 01/06/15
+        """
+        self.assertNotIn("oldcompany", Voice.naughty_list.all())
