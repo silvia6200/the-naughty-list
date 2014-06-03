@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.test import TestCase
 from naughtylist.models import Voice
+from datetime import datetime, timedelta
 
 # Create your tests here.
 
@@ -40,3 +41,12 @@ class ListMethodTests(TestCase):
         self.assertLessEqual(len(Voice.naughty_list.all()), settings.NAUGHTY_LIST_SIZE)
         self.assertEquals(len(Voice.naughty_list.all(size=2)), 2)
         self.assertEquals(len(Voice.naughty_list.all(size=3)), 3)
+
+    def test_date_range_can_be_passed(self):
+        """
+        the ability to pass in date range (from, to) arguments to the method
+        """
+        one_day_from_now = datetime.today() + timedelta(days=1)
+        two_days_from_now = datetime.today() + timedelta(days=2)
+        self.assertEquals(Voice.naughty_list.all(start_date=one_day_from_now, end_date=two_days_from_now), [])
+        self.assertGreater(len(Voice.naughty_list.all()), 0)
