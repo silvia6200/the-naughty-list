@@ -3,4 +3,5 @@ djangorestframework
 south
 ipython
 redis
+TwitterAPI
 #hiredis
